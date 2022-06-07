@@ -1,0 +1,60 @@
+{
+  "devices": [
+    {
+      "id": 5,
+      "nom": "XBOX",
+      "status": "ON",
+      "room": "Bedroom",
+      "floor": "2ere etage"
+    },
+    {
+      "nom": "RADIO",
+      "room": "Spare room",
+      "floor": "rez de chaussée",
+      "status": "ON",
+      "id": 6
+    },
+    {
+      "floor": "dej12",
+      "nom": "DEJ123",
+      "room": "Spare room",
+      "status": "ON",
+      "id": 7
+    }
+  ],
+  "Floor": [
+    {
+      "id": 2,
+      "nom": "1ere etage"
+    },
+    {
+      "id": 2,
+      "nom": "2ere etage"
+    },
+    {
+      "nom": "rez de chaussée",
+      "id": 3
+    },
+    {
+      "nom": "dej12",
+      "id": 4
+    }
+  ],
+  "romm": [
+    {
+      "id": 1,
+      "nom": "Spare room",
+      "floor": "rez de chaussée"
+    },
+    {
+      "id": 2,
+      "nom": "Bedroom",
+      "floor": "1ere etage"
+    },
+    {
+      "id": 3,
+      "nom": "Bathroom",
+      "floor": "2ere etage"
+    }
+  ]
+}

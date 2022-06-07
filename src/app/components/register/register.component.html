@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-8 mt-4 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title text-center">Inscription </h3>
+                <form>
+                    <div class="form-group">
+                        <label for="Nom">Nom</label>
+                        <input [(ngModel)]="newuser.nom" type="text" class="form-control" id="Nom"
+                            placeholder="Enter Nom" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input [(ngModel)]="newuser.email" type="text" class="form-control" id="Email"
+                            placeholder="Enter Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Password">Password</label>
+                        <input [(ngModel)]="newuser.password" type="password" class="form-control" id="Password"
+                            placeholder="Enter Password" required>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button [disabled]="!formIsValid()" (click)="registerUser()"
+                            class="btn btn-primary">Submit</button>
+
+                    </div>
+                </form>
+                <div class="d-flex justify-content-center links">
+                    Already Have account?<a routerLink="/login" class="ml-2">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

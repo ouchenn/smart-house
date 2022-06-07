@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark text-white">
+    <a class="navbar-brand" routerLink="#">Smart House</a>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul *ngIf="currentuser" class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" routerLink="home"><i class="fa fa-home"></i>Acuiel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="floor"><i class="fa fa-plus"></i>floor</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="room"><i class="fa fa-plus"></i>room</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" routerLink="register"><i class="fa fa-plus"></i>register</a>
+            </li> -->
+
+
+
+
+
+        </ul>
+    </div>
+    <div *ngIf="currentuser" class="nav-item">
+        <a class="nav-link">{{ currentuser }}</a>
+    </div>
+    <div *ngIf="currentuser" class="nav-item">
+        <a class="nav-link" (click)="logout()"><i class="fa fa-sign-out"></i>Se déconnecter</a>
+    </div>
+</nav>

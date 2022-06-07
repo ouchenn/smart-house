@@ -1,0 +1,31 @@
+<div class="row my-5">
+    <div class="col-md-6 mx-auto my-5">
+        <div class="card mb-3" style="max-width: 540px;"
+            [ngStyle]="{'background-color':device.status ? ' #bdf2c9' : '#ff8787' }">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="./assets/images/pfkeby.jpg" class="img-fluid rounded-start" alt="téléchargement">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ device.room }}-{{ device.status }} </h5>
+                        <div class="col-sm ">
+                            <div>Device: <span class="font-weight-bold">{{ device.nom }}</span></div>
+                            <div>Room: <span class="font-weight-bold">{{ device.room }}</span></div>
+                            <div>Floor: <span class="font-weight-bold">{{ device.floor }}</span></div>
+
+                            <div>status: <span *ngIf="device.status" class="font-weight-bold">ON</span><span
+                                    *ngIf="!device.status" class="font-weight-bold">OFF</span></div>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This
+                                content is a little bit longer.</p>
+
+
+                        </div>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

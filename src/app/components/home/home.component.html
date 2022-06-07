@@ -1,0 +1,153 @@
+<div class="d-flex justify-content-center my-4">
+
+    <div class="col-md-6 text-center">
+        <h3 class="text-uppercase">list of devices</h3>
+    </div>
+    <button (click)="open(mymodal)" class="btn btn-primary btn-sm mr-1"><i class="fa fa-plus"></i></button>
+
+
+</div>
+
+
+
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <ul class="list-group">
+
+
+
+            <ul class="list-group ">
+                <li *ngFor="let device of devicesList let i= index"
+                    class="list-group-item d-flex justify-content-between align-items-center my-2"
+                    [ngStyle]="{'background-color':device.status==='ON' ? ' #bdf2c9' : '#ff8787' }">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm d-flex align-items-center">
+                                <!-- <button (click)="toggleStatus(device)"
+                                    [ngClass]="{'btn-danger':device.status,'btn-success':!device.status}"
+                                    class="btn  btn-sm"><i class="fa fa-solid fa-power-off"></i></button> -->
+                                <button (click)="toggleStatus(device)"
+                                    [ngClass]="{'btn-danger':device.status==='ON','btn-success':device.status==='OFF'}"
+                                    class="btn  btn-sm"><i class="fa fa-solid fa-power-off"></i></button>
+                            </div>
+                            <div class="col-sm ">
+                                <div>device: <span class="font-weight-bold">{{ device.nom }}</span></div>
+                                <div>Room: <span class="font-weight-bold">{{ device.room }}</span></div>
+                                <!-- <div>status: <span *ngIf="device.status" class="font-weight-bold">ON</span><span
+                                        *ngIf="!device.status" class="font-weight-bold">OFF</span></div> -->
+                                <div>Status: <span class="font-weight-bold">{{ device.status }}</span></div>
+
+                            </div>
+                            <div class="col-sm d-flex align-items-center">
+                                <a [routerLink]="['/info',device]">more info... </a>
+                            </div>
+                            <div class="col-sm d-flex align-items-center">
+                                <button (click)="open(mymodal)" (click)="editDevices(device,i)"
+                                    class="btn btn-warning btn-sm mr-3"><i class="fa fa-pencil"></i></button>
+                                <button (click)="deleteDevices(device.id)" class="btn btn-danger btn-sm"><i
+                                        class="fa fa-trash"></i></button>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </li>
+
+
+            </ul>
+
+
+            <!-- add modal -->
+
+            <ng-template #mymodal let-modal>
+                <div class="modal-header d-flex flex-column">
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 *ngIf="addButton" class="modal-title text-center" id="modal-basic-title">Add Device</h4>
+                    <h4 *ngIf="!addButton" class="modal-title text-center" id="modal-basic-title">Update Device</h4>
+
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-6 mx-auto">
+
+                        <form method="post">
+                            <div class="form-group">
+                                <input [(ngModel)]="deviceForm.id" name="id" type="text" id="id" hidden>
+                                <label for="Nom">Nom</label>
+                                <input [(ngModel)]="deviceForm.nom" name="Nom" type="text" class="form-control" id="Nom"
+                                    placeholder="Enter Nom" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="room">room</label>
+                                <select [(ngModel)]="deviceForm.room" name="room" class="form-select"
+                                    aria-label="Default select example">
+
+                                    <option *ngFor="let f of rommsList" [ngValue]="f.nom">{{f.nom}}</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="floor">floor</label>
+                                <select [(ngModel)]="deviceForm.floor" name="floor" class="form-select"
+                                    aria-label="Default select example">
+
+                                    <option *ngFor="let f of floorsList" [ngValue]="f.nom">{{f.nom}}</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="status">status</label>
+                                <select [(ngModel)]="deviceForm.status" name="status" class="form-select"
+                                    aria-label="Default select example">
+
+                                    <option selected value="OFF">OFF</option>
+                                    <option value="ON">ON</option>
+
+                                </select>
+
+                            </div>
+
+                            <button *ngIf="addButton" (click)="add()" class="btn btn-primary"
+                                (click)="modal.dismiss('Cross click')"><i class="fas fa-plus"></i>
+                                Add Device </button>
+
+                            <button *ngIf="!addButton" (click)="updateDevice()" class="btn btn-primary"
+                                (click)="modal.dismiss('Cross click')"><i class="fas fa-refresh"></i>
+                                Update Device </button>
+
+                        </form>
+
+
+
+
+
+
+
+                    </div>
+                </div>
+
+            </ng-template>
+            <!-- confirm modal -->
+            <!-- <ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>Hello, World!</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->

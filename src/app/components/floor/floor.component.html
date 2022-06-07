@@ -1,0 +1,83 @@
+<div class="d-flex justify-content-center my-4">
+
+    <div class="col-md-6 text-center">
+        <h3 class="text-uppercase">list of Floors</h3>
+    </div>
+    <button (click)="open(mymodal)" class="btn btn-primary btn-sm mr-1"><i class="fa fa-plus"></i></button>
+
+
+</div>
+
+
+
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+
+        <div class="card-deck">
+            <div class="card" *ngFor="let floor of floorsList let i= index">
+                <img class="card-img-top" src="./assets/images/floor3.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ floor.nom }}</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+                    </p>
+                    <div class="d-flex justify-content-around">
+                        <button (click)=" open(mymodal)" (click)="edite(floor,i)" class="btn btn-warning btn-sm "><i
+                                class="fa fa-pencil"></i></button>
+                        <button (click)="delete(floor.id)" class="btn btn-danger btn-sm"><i
+                                class="fa fa-trash"></i></button>
+                    </div>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- add modal -->
+
+        <ng-template #mymodal let-modal>
+            <div class="modal-header d-flex flex-column">
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 *ngIf="addButton" class="modal-title text-center" id="modal-basic-title">Add Floor</h4>
+                <h4 *ngIf="!addButton" class="modal-title text-center" id="modal-basic-title">Update Floor</h4>
+
+            </div>
+            <div class="modal-body">
+                <div class="col-md-6 mx-auto">
+
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="Nom">Nom</label>
+                            <input [(ngModel)]="modalForm.nom" name="Nom" type="text" class="form-control" id="Nom"
+                                placeholder="Enter Nom" required>
+                        </div>
+
+
+
+
+
+                        <button *ngIf="addButton" (click)="add()" class="btn btn-primary"
+                            (click)="modal.dismiss('Cross click')"><i class="fas fa-plus"></i>
+                            Add Floor </button>
+
+                        <button *ngIf="!addButton" (click)="update()" class="btn btn-primary"
+                            (click)="modal.dismiss('Cross click')"><i class="fas fa-refresh"></i>
+                            Update Floor </button>
+
+                    </form>
+
+
+
+
+
+
+
+                </div>
+            </div>
+
+        </ng-template>
+
+
+    </div>

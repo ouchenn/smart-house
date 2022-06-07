@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "nom": "achraf",
+      "email": "achraf@gmail.com",
+      "password": "$2a$10$r2fdgDce6R9OgGeckVm2JObp4bvf3ASAyNcas5STMcz97LWRCaNHm"
+    },
+    {
+      "email": "ayoub@gmail.com",
+      "password": "$2a$10$05SN4S2lb/2vufo.l8HWMe5LWzxRaUlXluZaMOgSuRlShN5.Nmk1q",
+      "nom": "ayoub",
+      "id": 2
+    },
+    {
+      "email": "aayoub@gmail.com",
+      "password": "$2a$10$LiP1WZAqzmpVGLe9bkKdEuv3yAPY83.Yww0cVkzJaSVACR8.HMruC",
+      "id": 3
+    }
+  ]
+}
